@@ -1,0 +1,26 @@
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.posts {
+    max-width: 700px;
+    margin: 1.875rem auto;
+
+}
+
+figure {
+    border: 5px solid palevioletred;
+    border-radius: 5px;
+}
+
+article {
+    background-color: palevioletred;
+    color: white;
+}
+
+small {
+    font-size: 0.75rem;
+}
