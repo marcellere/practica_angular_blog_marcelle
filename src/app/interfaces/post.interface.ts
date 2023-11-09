@@ -5,4 +5,4 @@ export interface IPost {
     image: string;
     date: Date;
     category: string;
-}
+} 
