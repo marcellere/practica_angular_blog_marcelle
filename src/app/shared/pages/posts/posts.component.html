@@ -1,0 +1,33 @@
+<aside class="posts">
+    <nav class="flex">
+        <ul class="flex">
+            <li (click)="onClickCategory('all')">All categories</li>
+            <li *ngFor="let cat of arrCategories" (click)="onClickCategory(cat)">{{cat}}</li>
+        </ul>
+    </nav>
+    <div *ngIf="currentTag !== ''" class="filter-tag">{{currentTag}} <span class="delete"
+            (click)="onClickRemoveTag()">X</span>
+    </div>
+</aside>
+<section class="posts">
+    <article *ngFor="let post of arrPosts" class="card mb-3 p-3">
+        <figure class="card-img-top">
+            <img [src]="post.image" alt="">
+        </figure>
+        <div class="card-body">
+            <h3 class="card-title">{{post.title}}</h3>
+            <div class="author">
+                <figure *ngIf="post.author_image !== ''"><img [src]="post.author_image" alt=""></figure>
+                <h5>{{post.author}}</h5>
+            </div>
+            <h5 class="h6 category" (click)="onClickCategory(post.category)">Category: {{post.category}}</h5>
+            <p class="card-text mb-3"><small>{{post.date | date: 'MMM d, y, h:mm a'}}</small></p>
+            <p class="card-text" [innerHTML]="post.content | slice : 1:250"></p>
+            <p class="read-more" (click)="onClickNav(post.id)">... READ MORE</p>
+            <div>
+                <span>tags: </span>
+                <div class="tags" *ngFor="let tag of getTags(post.tags)" (click)="onClickTag(tag)">{{tag}}</div>
+            </div>
+        </div>
+    </article>
+</section>

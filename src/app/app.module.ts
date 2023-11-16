@@ -3,14 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostsComponent } from './pages/posts/posts.component';
-import { PostFormComponent } from './pages/post-form/post-form.component';
+import { PostsComponent } from './shared/pages/posts/posts.component';
+import { PostFormComponent } from './shared/pages/post-form/post-form.component';
+import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
-    PostFormComponent
+    PostFormComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
