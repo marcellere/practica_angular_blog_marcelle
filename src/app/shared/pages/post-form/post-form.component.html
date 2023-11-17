@@ -1,1 +1,30 @@
-<p>post-form works!</p>
+<form [formGroup]="newPost">
+    <div class="mb-3">
+        <label class="form-label">Recipe title</label>
+        <input type="text" class="form-control" formControlName="title">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Author</label>
+        <input type="text" class="form-control" formControlName="author">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Author image url</label>
+        <input type="text" class="form-control" formControlName="author_image">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Recipe image url</label>
+        <input type="text" class="form-control" formControlName="image">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select class="form-select" formControlName="category">
+            <option selected>Select recipe category</option>
+            <option *ngFor="let cat of arrCategories" [value]="cat">{{cat}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Tags (please separate tags with commas)</label>
+        <input type="text" class="form-control" formControlName="tags">
+    </div>
+    <button type="submit" class="btn btn-light">Submit recipe</button>
+</form>
