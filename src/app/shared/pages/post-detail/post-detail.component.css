@@ -1,0 +1,78 @@
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.posts {
+    max-width: 43.75rem;
+    margin: 1.875rem auto;
+
+}
+
+figure {
+    border: 5px solid palevioletred;
+    border-radius: 5px;
+}
+
+article {
+    background-color: palevioletred;
+    color: white;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: block;
+    padding: 0.625rem;
+    background-color: lightpink;
+    font-size: 1rem;
+    color: rgb(52, 52, 52);
+    cursor: pointer;
+}
+
+.tags {
+    display: inline-block;
+    padding: 0.3125rem 0.625rem;
+    background-color: lightpink;
+    margin-left: 0.625rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+span {
+    font-weight: 500;
+}
+
+
+
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.author figure {
+    width: 5rem;
+}
+
+.author figure img {
+    border-radius: 50%;
+}
+
+.category {
+    cursor: pointer;
+}

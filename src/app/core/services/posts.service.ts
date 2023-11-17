@@ -36,4 +36,11 @@ export class PostsService {
   getByTag(tag: string) {
     return this.arrPosts.filter(post => post.tags.includes(tag))
   }
+
+  getById(postId: number) {
+    console.log(postId);
+
+    return this.arrPosts.find(post => post.id == postId)
+  }
+
 }

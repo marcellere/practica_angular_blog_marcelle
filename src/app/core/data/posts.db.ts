@@ -44,7 +44,7 @@ export const blogPosts: IPost[] = [
 
 `,
         author: "Francesco",
-        author_image: "",
+        author_image: "/assets/images/francesco.jpg",
         image: "/assets/images/tiramisu.PNG",
         date: new Date("2023-11-01"),
         category: "Desserts",
