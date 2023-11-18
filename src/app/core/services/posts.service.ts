@@ -38,9 +38,13 @@ export class PostsService {
   }
 
   getById(postId: number) {
-    console.log(postId);
-
-    return this.arrPosts.find(post => post.id == postId)
+    // SOLUCIONAR ESTO
+    const result = this.arrPosts.find(post => post.id == postId)
+    if (result !== undefined) {
+      return result
+    } else {
+      return console.log('error');
+    }
   }
 
 }

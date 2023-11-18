@@ -21,8 +21,6 @@ export class PostsComponent {
     this.arrPosts = this.postsService.getAll()
     this.arrCategories = this.postsService.getCategories()
     this.arrTags = this.postsService.getTags()
-    console.log(this.arrTags);
-
   }
 
   onClickFilter(cat: string) {

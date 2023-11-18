@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IPost } from 'src/app/core/interfaces/post.interface';
 import { PostsService } from 'src/app/core/services/posts.service';
@@ -16,13 +16,10 @@ export class PostDetailComponent {
   id!: number;
   post!: IPost;
 
-  constructor() {
-    this.post = this.postsService.arrPosts[1]
-  }
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.id = params['postId'];
-      //this.postsService.getById(this.id)
+      this.postsService.getById(this.id)
       // CORREGIR GET BY ID
     })
 
@@ -34,7 +31,8 @@ export class PostDetailComponent {
 
   onClickTag(tag: string) {
     this.router.navigate(['/posts'])
-    // filtrar por TAg
+    this.postsService.getByTag(tag)
+    // solucionar lo de los TAGS en la lista de posts
   }
 
 }
