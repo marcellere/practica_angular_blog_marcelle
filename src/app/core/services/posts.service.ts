@@ -14,10 +14,17 @@ export class PostsService {
 
   create(post: IPost) {
     this.arrPosts.push(post)
+    localStorage.removeItem('arr_posts')
+    localStorage.setItem('arr_posts', JSON.stringify(this.arrPosts))
   }
 
   getAll(): IPost[] {
-    return this.arrPosts;
+    if (localStorage.getItem('arr-posts')) {
+      return JSON.parse('arr_posts')
+    } else {
+      localStorage.setItem('arr_posts', JSON.stringify(this.arrPosts))
+      return this.arrPosts
+    }
   }
 
   getByCategory(cat: string): IPost[] {
@@ -37,14 +44,8 @@ export class PostsService {
     return this.arrPosts.filter(post => post.tags.includes(tag))
   }
 
-  getById(postId: number) {
-    // SOLUCIONAR ESTO
-    const result = this.arrPosts.find(post => post.id == postId)
-    if (result !== undefined) {
-      return result
-    } else {
-      return console.log('error');
-    }
+  getById(postId: number): IPost | undefined {
+    return this.arrPosts.find(post => post.id === postId)
   }
 
 }

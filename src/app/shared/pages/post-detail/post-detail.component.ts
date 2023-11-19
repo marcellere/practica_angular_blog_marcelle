@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IPost } from 'src/app/core/interfaces/post.interface';
 import { PostsService } from 'src/app/core/services/posts.service';
@@ -13,16 +13,14 @@ export class PostDetailComponent {
   activatedRoute = inject(ActivatedRoute)
   router = inject(Router)
   postsService = inject(PostsService)
-  id!: number;
-  post!: IPost;
+  postId!: number;
+  post!: IPost | undefined;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-      this.id = params['postId'];
-      this.postsService.getById(this.id)
-      // CORREGIR GET BY ID
+      this.postId = params['postId'];
+      this.post = this.postsService.getById(Number(this.postId))
     })
-
   }
 
   getTags(tags: string) {
