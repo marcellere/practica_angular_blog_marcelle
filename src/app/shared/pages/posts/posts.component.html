@@ -2,7 +2,9 @@
     <nav class="flex">
         <ul class="flex">
             <li (click)="onClickCategory('all')">All categories</li>
-            <li *ngFor="let cat of arrCategories" (click)="onClickCategory(cat)">{{cat}}</li>
+            <li *ngFor="let cat of arrCategories" (click)="onClickCategory(cat)">
+                {{cat}}
+            </li>
         </ul>
     </nav>
     <div *ngIf="currentTag !== ''" class="filter-tag">{{currentTag}} <span class="delete"

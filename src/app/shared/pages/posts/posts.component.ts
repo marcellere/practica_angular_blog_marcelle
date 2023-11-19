@@ -16,6 +16,7 @@ export class PostsComponent {
   arrTags: string[] = []
   currentTag: string = ""
   router = inject(Router)
+  currentCat!: string
 
   ngOnInit() {
     this.arrPosts = this.postsService.getAll()
@@ -36,6 +37,7 @@ export class PostsComponent {
   }
 
   onClickCategory(cat: string) {
+    this.currentCat = cat
     if (cat !== "all") {
       this.arrPosts = this.postsService.getByCategory(cat)
     } else {
