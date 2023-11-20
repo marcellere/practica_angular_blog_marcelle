@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { PostsService } from 'src/app/core/services/posts.service';
 
 @Component({
   selector: 'nav-bar',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
+  postsService = inject(PostsService)
+  router = inject(Router)
+
+  onClickNav() {
+    this.postsService.currentCat = "";
+    this.postsService.currentTag = "";
+    this.router.navigate(['/posts'])
+  }
 }

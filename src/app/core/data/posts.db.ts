@@ -1,6 +1,5 @@
 import { IPost } from "../interfaces/post.interface";
 
-
 export const blogPosts: IPost[] = [
     {
         id: 1,

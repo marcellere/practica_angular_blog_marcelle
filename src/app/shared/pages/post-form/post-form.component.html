@@ -1,4 +1,4 @@
-<form [formGroup]="newPost" class="container" (ngSubmit)="onSubmit">
+<form [formGroup]="newPost" class="container" (ngSubmit)="onSubmit()">
     <h2 class="mb-4">Add new recipe</h2>
     <div class="mb-3">
         <label class="form-label">Recipe title</label>
@@ -29,6 +29,7 @@
     </div>
     <div class="mb-3">
         <label for="">Content</label>
+
         <editor formControlName="content" apiKey="no-api-key" [disabled]="false" id="editor" [init]="{ plugins: 'code help image lists link powerpaste table wordcount',
                             base_url: '/tinymce',
                             suffix: '.min'

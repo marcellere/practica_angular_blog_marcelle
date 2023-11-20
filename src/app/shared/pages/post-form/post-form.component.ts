@@ -33,19 +33,14 @@ export class PostFormComponent {
     this.arrCategories = this.postsService.getCategories()
   }
 
-  newId() {
-    const arrPosts = this.postsService.getAll()
-    const lastPost = arrPosts.slice(-1)[0]
-    return (lastPost.id + 1)
-  }
-
 
   onSubmit() {
+    console.log('dd')
     const post: IPost = this.newPost.value
-    post.id = this.newId()
-    post.date = new Date
-    this.postsService.create(post)
-    console.log(post)
+    post.id = this.postsService.currentId++;
+    post.date = new Date();
+    let response = this.postsService.create(post)
+    console.log(response)
     this.router.navigate([`/posts/${post.id}`])
 
     // TAMPOCO FUNCIONA

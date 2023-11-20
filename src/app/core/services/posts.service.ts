@@ -7,27 +7,25 @@ import { blogPosts } from "../data/posts.db";
 })
 export class PostsService {
   arrPosts: IPost[] = []
+  currentTag: string = ""
+  currentCat: string = ""
+  currentId: number = 10
 
   constructor() {
     this.arrPosts = blogPosts
   }
 
-  create(post: IPost) {
+  create(post: IPost): number {
     this.arrPosts.push(post)
-    localStorage.removeItem('arr_posts')
-    localStorage.setItem('arr_posts', JSON.stringify(this.arrPosts))
+    return this.arrPosts.length;
   }
 
   getAll(): IPost[] {
-    if (localStorage.getItem('arr-posts')) {
-      return JSON.parse('arr_posts')
-    } else {
-      localStorage.setItem('arr_posts', JSON.stringify(this.arrPosts))
-      return this.arrPosts
-    }
+    return this.arrPosts
   }
 
   getByCategory(cat: string): IPost[] {
+    this.currentCat = cat
     return this.arrPosts.filter(post => post.category === cat)
   }
 
@@ -41,6 +39,7 @@ export class PostsService {
   }
 
   getByTag(tag: string) {
+    this.currentTag = tag;
     return this.arrPosts.filter(post => post.tags.includes(tag))
   }
 

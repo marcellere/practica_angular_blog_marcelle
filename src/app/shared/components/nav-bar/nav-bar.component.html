@@ -1,8 +1,8 @@
 <nav>
     <ul>
-        <li class="logo" [routerLink]="['/posts']">I love my friends, <br>so I cook for them</li>
+        <li class="logo" (click)="onClickNav()">I love my friends, <br>so I cook for them</li>
         <div>
-            <li [routerLink]="['/posts']" class="navitem">Recipes</li>
+            <li (click)="onClickNav()" class="navitem">Recipes</li>
             <li class="navitem" [routerLink]="['/new']">Add new recipe</li>
         </div>
     </ul>

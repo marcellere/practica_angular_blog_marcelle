@@ -14,12 +14,14 @@ export class PostsComponent {
   arrPosts: IPost[] = []
   arrCategories: string[] = []
   arrTags: string[] = []
-  currentTag: string = ""
   router = inject(Router)
-  currentCat!: string
 
   ngOnInit() {
-    this.arrPosts = this.postsService.getAll()
+    if (this.postsService.currentTag !== "") {
+      this.arrPosts = this.postsService.getAll()
+    } else {
+      this.arrPosts = this.postsService.getByTag(this.postsService.currentTag)
+    }
     this.arrCategories = this.postsService.getCategories()
     this.arrTags = this.postsService.getTags()
   }
@@ -37,21 +39,22 @@ export class PostsComponent {
   }
 
   onClickCategory(cat: string) {
-    this.currentCat = cat
     if (cat !== "all") {
+      this.postsService.currentCat = cat
       this.arrPosts = this.postsService.getByCategory(cat)
     } else {
+      this.postsService.currentCat = ""
       this.arrPosts = this.postsService.getAll()
     }
   }
 
   onClickTag(tag: string) {
     this.arrPosts = this.postsService.getByTag(tag)
-    this.currentTag = tag
+    this.postsService.currentTag = tag
   }
 
   onClickRemoveTag() {
-    this.currentTag = ""
+    this.postsService.currentTag = ""
     this.arrPosts = this.postsService.getAll()
   }
 

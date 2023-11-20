@@ -7,8 +7,8 @@
             </li>
         </ul>
     </nav>
-    <div *ngIf="currentTag !== ''" class="filter-tag">{{currentTag}} <span class="delete"
-            (click)="onClickRemoveTag()">X</span>
+    <div *ngIf="postsService.currentTag !== ''" class="filter-tag">{{postsService.currentTag}}
+        <span class="delete" (click)="onClickRemoveTag()">X</span>
     </div>
 </aside>
 <section class="posts">

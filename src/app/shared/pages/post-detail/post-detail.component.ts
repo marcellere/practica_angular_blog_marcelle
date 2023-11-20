@@ -24,13 +24,17 @@ export class PostDetailComponent {
   }
 
   getTags(tags: string) {
-    return tags.split(", ")
+    if (tags.includes(',')) {
+      return tags.split(", ")
+    } else {
+      return [tags]
+    }
+
   }
 
   onClickTag(tag: string) {
+    this.postsService.currentTag = tag
     this.router.navigate(['/posts'])
-    this.postsService.getByTag(tag)
-    // solucionar lo de los TAGS en la lista de posts
   }
 
 }
