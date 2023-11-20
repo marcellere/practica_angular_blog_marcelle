@@ -1,0 +1,11 @@
+footer {
+    width: 100%;
+    padding: 0.625rem;
+    color: black;
+    text-align: right;
+}
+
+p {
+    margin-right: 0.625rem;
+    font-weight: 500;
+}

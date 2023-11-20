@@ -9,6 +9,7 @@ import { PostFormComponent } from './shared/pages/post-form/post-form.component'
 import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 import { PostDetailComponent } from './shared/pages/post-detail/post-detail.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EditorModule } from '@tinymce/tinymce-angular';
     PostsComponent,
     PostFormComponent,
     NavBarComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
